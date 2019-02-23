@@ -1,0 +1,201 @@
+//
+//  Aria2-client-iOS-Prefix.pch
+//
+//
+//  Created by ss on 2016/9/27.
+//
+//
+
+#ifndef Aria2-client-iOS-Prefix.pch
+#define Aria2-client-iOS-Prefix.pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+#import "UIColor+expanded.h"
+#import "UIButton+Bootstrap.h"
+#import <Masonry/Masonry.h>
+#import "MsgUtils.h"
+#import "NetUtils.h"
+#import "CommonUtils.h"
+#endif
+
+//常用变量
+#define DebugLog(s, ...) NSLog(@"%s(%d): %@", __FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+
+/**
+ * 位置样式
+ */
+#define ymScreen_Bounds [UIScreen mainScreen].bounds
+#define ymScreen_Height [UIScreen mainScreen].bounds.size.height
+#define ymScreen_Width [UIScreen mainScreen].bounds.size.width
+#define ymScreen_status_bar_height [[UIApplication sharedApplication] statusBarFrame].size.height
+
+#define ymPopWin_width (ymScreen_Width * 0.8 / 1)
+
+#define ymScreen_band_chart_height 100
+#define ymScreen_chart_height 200
+#define ymScreen_HEIGHT_MIN 0.1f
+
+#define ymScreen_padding_default 10
+#define ymScreen_cell_padding 8
+#define ymScreen_top_padding 12
+#define ymScreen_bottom_padding -10
+#define ymScreen_right_padding -10
+#define ymScreen_left_padding 10
+
+#define ymDevice_Is_iPhone4                                                                                            \
+    ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \
+         ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size)                           \
+         : NO)
+#define ymDevice_Is_iPhone5                                                                                            \
+    ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \
+         ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size)                          \
+         : NO)
+#define ymDevice_Is_iPhone6                                                                                            \
+    ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \
+         ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size)                          \
+         : NO)
+#define ymDevice_Is_iPhone6Plus                                                                                        \
+    ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \
+         ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)                         \
+         : NO)
+#define ymDevice_Is_iPhoneX                                                                                            \
+    ([UIScreen instancesRespondToSelector:@selector(currentMode)]                                                      \
+         ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)                         \
+         : NO)
+
+#define ymScaleFrom_iPhone6_Desgin(_X_) (_X_ * (ymScreen_Width / 320))
+#define ymLeftButtonCutStrNum 7
+
+// 颜色
+
+/**
+ * 基础色彩集
+ */
+// 白色
+#define ymColorWhite [UIColor whiteColor]
+#define ymColorHalfWhite [UIColor colorWithHexString:@"0xffffff" andAlpha:0.5]
+// 黑色
+#define ymColorBlack [UIColor blackColor]
+#define ymColorOneThirdBlack [UIColor colorWithHexString:@"0x000000" andAlpha:0.3]
+// 蓝色(深)
+#define ymColorBlueDark [UIColor colorWithHexString:@"0x7ab9ff"]
+// 蓝色(浅)
+#define ymColorBlueLight [UIColor colorWithHexString:@"0xdfeeff"]
+// 绿色(深)
+#define ymColorGreenDark [UIColor colorWithHexString:@"0x5cd89d"]
+// 绿色(浅)
+#define ymColorGreenLight [UIColor colorWithHexString:@"0xd3f5e4"]
+// 黄色(深)
+#define ymColorYellowDark [UIColor colorWithHexString:@"0xff9f30"]
+// 黄色(浅)
+#define ymColorYellowLight [UIColor colorWithHexString:@"0xfaf3d9"]
+
+// 橙色(深)
+#define ymColorOrgDark [UIColor colorWithHexString:@"0xffa347"]
+// 橙色(浅)
+#define ymColorOrgLight [UIColor colorWithHexString:@"0xfbeada"]
+// 红色(深)
+#define ymColorRedDark [UIColor colorWithHexString:@"0xff7a88"]
+// 红色(浅)
+#define ymColorRedLight [UIColor colorWithHexString:@"0xffdee1"]
+// 紫色(深)
+#define ymColorPinkDark [UIColor colorWithHexString:@"0xb7b1e9"]
+// 紫色(浅)
+#define ymColorPinkLight [UIColor colorWithHexString:@"0xddd9fa"]
+// 灰色(深)
+#define ymColorGrayDark [UIColor colorWithHexString:@"0x666666"]
+// 灰色(浅)
+#define ymColorGrayLight [UIColor colorWithHexString:@"0x999999"]
+// 可忽略的颜色
+#define ymColorIngoreGrayLight [UIColor colorWithHexString:@"0xdbdbdb"]
+// 透明色
+#define ymClearColor [UIColor clearColor]
+
+#define ymColorBrandGreen ymColorGreenDark
+#define ymBackgroudColor [UIColor colorWithHexString:@"0xf7f7f9"]
+#define ymBorderColor [UIColor colorWithHexString:@"0xe8e8ea"]
+#define ymLabColor [UIColor colorWithHexString:@"0x37bc9b"]
+
+#define ymListSplitCellHeight 4
+
+#define APP_PRIMARY_COLOR @"0x2bbbfd"
+#define APP_PRIMARY_DARK_COLOR @"0x09a3ea"
+
+// 正文字体颜色
+#define ymBgHightLineColor ymColorOrgLight
+#define ymContentHightLineColor ymColorOrgDark
+#define ymContentTextColor ymColorGrayLight
+#define ymContentWarnningTextColor ymColorYellowDark
+#define ymContentDangerTextColor ymColorRedDark
+#define ymContentSuccessTextColor ymColorGreenDark
+#define ymContentPrimaryTextColor ymColorGrayDark
+#define ymContentSplitLineColor ymColorIngoreGrayLight
+// 属性标题: 例如: 项目名: xxxx
+#define ymLabelColor ymColorGrayLight
+
+#define ymContentSubTextColor ymColorGrayLight
+#define ymContentIngoreTextColor ymColorIngoreGrayLight
+
+/**
+ * 基础字体大小
+ */
+#define ymFontSizeSmallest 11
+#define ymFontSizeSmaller 13
+#define ymFontSizeNormal 15
+#define ymFontSizeBigger 17
+#define ymFontSizeBiggest 19
+#define ymFontSizeLager 22
+#define ymFontSizeLagest 25
+#define ymFontSizeAmaze 45
+
+#define ymColorWhiteBGInputHint [UIColor colorWithHexString:@"0x2bbbfd"]
+#define ymColorWhiteBGInputText [UIColor colorWithHexString:@"0x383d4c"]
+
+// 默认导航
+#define ymNavBackgroundColor [UIColor colorWithHexString:@"0x2bbbfd"]
+// 返回按钮的字体大小
+#define ymTabBarColorBackground ymColorWhite
+#define ymTabBarFontSize ymFontSizeLagest
+
+#define WEEK_DAYS 7
+
+#define methodNotImplemented()                                                                                         \
+    @throw [NSException                                                                                                \
+        exceptionWithName:NSInvalidArgumentException                                                                   \
+                   reason:[NSString stringWithFormat:@"%s 必须实现基类或者协议的方法", __PRETTY_FUNCTION__]            \
+                 userInfo:nil]
+
+#ifndef LLog
+//#define LLogF(format, ...) NSLog(@"%s:%i: %@", __FILE__, __LINE__, [NSString stringWithFormat:format, ##__VA_ARGS__]);
+#ifdef DEBUG
+//#define LLog(FORMAT, ...) {\
+//NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];\
+//[dateFormatter setDateStyle:NSDateFormatterMediumStyle];\
+//[dateFormatter setTimeStyle:NSDateFormatterShortStyle];\
+//[dateFormatter setDateFormat:@"HH:mm:ss:SSSSSS"]; \
+//NSString *str = [dateFormatter stringFromDate:[NSDate date]];\
+//fprintf(stderr,"<%s>  %s:%d\t%s\n",[str UTF8String],[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);\}
+#define LLog(FORMAT, ...)                                                                                              \
+    {                                                                                                                  \
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];                                               \
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];                                                       \
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];                                                        \
+        [dateFormatter setDateFormat:@"HH:mm:ss.SSS"];                                                                 \
+        NSString *str = [dateFormatter stringFromDate:[NSDate date]];                                                  \
+        fprintf(stderr, " <%s> %s:%d\t%s\n", [str UTF8String],                                                         \
+                [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__,                   \
+                [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);                                       \
+    }
+
+#else
+#define LLog(format, ...)                                                                                              \
+    while (0) {                                                                                                        \
+    }
+#endif
+#endif
+
+#endif
