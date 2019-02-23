@@ -39,7 +39,7 @@
             [[TPKeyboardAvoidingTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.dataSource = self;
         tableView.delegate = self;
-//        tableView.estimatedRowHeight = 200;
+        //        tableView.estimatedRowHeight = 200;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.scrollEnabled = YES;
         [self.view addSubview:tableView];
@@ -63,7 +63,7 @@
     if (cell == nil) {
         cell = [[FileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FileCellText"];
     }
-    TaskInfo *act = _list[indexPath.row / 2];
+    TaskInfo *act = _list[indexPath.row];
     cell.activite = act;
     return cell;
 }
@@ -80,27 +80,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
-                                                                       message:nil
-                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
 
-        [alert addAction:[UIAlertAction actionWithTitle:@"删除"
-                                                  style:UIAlertActionStyleDestructive
-                                                handler:^(UIAlertAction *_Nonnull action) {
-                                                    TaskInfo *act = _list[indexPath.row / 2];
-                                                    [APIUtils removeResultByGid:act.gid
-                                                                         rpcUri:_rpcUri
-                                                                        success:^(NSString *okmsg) {
-                                                                            [MsgUtils showMsg:@"已删除下载记录"];
-                                                                        }
-                                                                        failure:nil];
-                                                }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"删除"
+                                              style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *_Nonnull action) {
+                                                TaskInfo *act = _list[indexPath.row];
+                                                [APIUtils removeResultByGid:act.gid
+                                                                     rpcUri:_rpcUri
+                                                                    success:^(NSString *okmsg) {
+                                                                        [MsgUtils showMsg:@"已删除下载记录"];
+                                                                    }
+                                                                    failure:nil];
+                                            }]];
 
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
 
-        [self presentViewController:alert animated:YES completion:nil];
-    }
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 //每组行数

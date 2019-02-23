@@ -28,7 +28,6 @@
             [_labelText mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.contentView).offset(ymScreen_left_padding);
                 make.top.equalTo(self.contentView).offset(ymScreen_top_padding);
-                make.bottom.equalTo(self.contentView).offset(ymScreen_bottom_padding);
             }];
         }
         [_labelText setContentCompressionResistancePriority:UILayoutPriorityRequired
@@ -54,13 +53,17 @@
             }];
             _textText.numberOfLines = 0;
         }
-    }
-    if ([reuseIdentifier isEqualToString:LeftRightNoArrowCellText]) {
-        self.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
 
+        UIView *v = [UIView new];
+        v.backgroundColor = ymColorIngoreGrayLight;
+        [self.contentView addSubview:v];
+        [v mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self.contentView);
+            make.height.equalTo(@1);
+            make.top.equalTo(_labelText.mas_bottom).offset(ymScreen_top_padding);
+        }];
+    }
+    self.accessoryType = UITableViewCellAccessoryNone;
     return self;
 }
 
