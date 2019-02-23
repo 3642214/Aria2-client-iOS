@@ -12,7 +12,6 @@
 		5B1041C1221FEA7F00245D11 /* ServersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041C0221FEA7F00245D11 /* ServersViewController.m */; };
 		5B1041C6221FEA8000245D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1041C5221FEA8000245D11 /* Assets.xcassets */; };
 		5B1041CC221FEA8000245D11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041CB221FEA8000245D11 /* main.m */; };
-		5B1041F0221FEC2A00245D11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041EE221FEC2900245D11 /* AppDelegate.m */; };
 		5B1041F8221FEC4C00245D11 /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041F2221FEC4C00245D11 /* UIButton+Bootstrap.m */; };
 		5B1041F9221FEC4C00245D11 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041F3221FEC4C00245D11 /* NSString+SHA256.m */; };
 		5B1041FA221FEC4C00245D11 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1041F7221FEC4C00245D11 /* UIColor+expanded.m */; };
@@ -26,6 +25,7 @@
 		5B104243221FF38400245D11 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104241221FF38400245D11 /* BaseNavigationController.m */; };
 		5B104244221FF38400245D11 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104242221FF38400245D11 /* BaseViewController.m */; };
 		5B252C1A2220E9AA0039B942 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B252C192220E9AA0039B942 /* Result.m */; };
+		5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A215B22218405001CDEC1 /* AppDelegate.m */; };
 		5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4FD0AB2221407A003D11CC /* StopListViewController.m */; };
 		98C45BAE3A055743763FE509 /* Pods_Aria2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D2441FE3367899BDD9500B /* Pods_Aria2.framework */; };
 /* End PBXBuildFile section */
@@ -62,8 +62,6 @@
 		5B1041CB221FEA8000245D11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B1041D1221FEA8000245D11 /* Aria2-client-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aria2-client-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1041DC221FEA8000245D11 /* Aria2-client-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aria2-client-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B1041EE221FEC2900245D11 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../regDevices/regDevices/regDevices/AppDelegate.m; sourceTree = "<group>"; };
-		5B1041EF221FEC2A00245D11 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../regDevices/regDevices/regDevices/AppDelegate.h; sourceTree = "<group>"; };
 		5B1041F2221FEC4C00245D11 /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
 		5B1041F3221FEC4C00245D11 /* NSString+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256.m"; sourceTree = "<group>"; };
 		5B1041F4221FEC4C00245D11 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
@@ -91,6 +89,8 @@
 		5B104242221FF38400245D11 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		5B252C182220E9AA0039B942 /* Result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		5B252C192220E9AA0039B942 /* Result.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		5B2A215A22218405001CDEC1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5B2A215B22218405001CDEC1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5B4FD0AB2221407A003D11CC /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListViewController.m; sourceTree = "<group>"; };
 		5B4FD0AC2221407A003D11CC /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListViewController.h; sourceTree = "<group>"; };
 		81D2441FE3367899BDD9500B /* Pods_Aria2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aria2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,8 +154,8 @@
 		5B1041BB221FEA7F00245D11 /* Aria2-client-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				5B1041EF221FEC2A00245D11 /* AppDelegate.h */,
-				5B1041EE221FEC2900245D11 /* AppDelegate.m */,
+				5B2A215A22218405001CDEC1 /* AppDelegate.h */,
+				5B2A215B22218405001CDEC1 /* AppDelegate.m */,
 				5B1041FC221FF2C700245D11 /* Aria2-client-iOS-Prefix.pch */,
 				5B1041C5221FEA8000245D11 /* Assets.xcassets */,
 				5B104219221FF32100245D11 /* Cell */,
@@ -438,9 +438,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B10422E221FF32100245D11 /* ButtonCell.m in Sources */,
-				5B1041F0221FEC2A00245D11 /* AppDelegate.m in Sources */,
 				5B104244221FF38400245D11 /* BaseViewController.m in Sources */,
 				5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */,
+				5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */,
 				5B104232221FF32100245D11 /* LeftRightArrowCell.m in Sources */,
 				5B0F7ED72220F52900A6E573 /* ActiveListViewController.m in Sources */,
 				5B104214221FF30A00245D11 /* NetUtils.m in Sources */,
