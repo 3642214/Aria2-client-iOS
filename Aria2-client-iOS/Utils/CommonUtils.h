@@ -18,6 +18,7 @@
 + (void)AlertViewByVC:(BaseViewController *)vc
            showInfoCB:(void (^)(UIAlertAction *action))showInfoCB
               pauseCB:(void (^)(UIAlertAction *action))pauseCB
+           pauseTitle:(NSString *)pauseTitle
              removeCB:(void (^)(UIAlertAction *action))removeCB;
 
 + (NSString *)changeTimeFormat:(NSInteger)sec;

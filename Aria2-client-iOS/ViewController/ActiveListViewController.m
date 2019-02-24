@@ -169,6 +169,7 @@
                                failure:nil];
             }
         }
+        pauseTitle:[taskInfo.status isEqualToString:@"active"] ? @"暂停" : @"恢复"
         removeCB:^(UIAlertAction *action) {
             [APIUtils removeByGid:taskInfo.gid
                            rpcUri:_rpcUri

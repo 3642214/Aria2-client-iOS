@@ -90,6 +90,7 @@
             [self gotoVC:vc];
         }
         pauseCB:nil
+        pauseTitle:nil
         removeCB:^(UIAlertAction *action) {
             [APIUtils removeResultByGid:act.gid
                                  rpcUri:_rpcUri

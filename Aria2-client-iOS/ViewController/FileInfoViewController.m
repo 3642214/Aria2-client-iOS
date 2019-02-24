@@ -80,7 +80,8 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
         } break;
         case SIZECELL: {
             [cell setLabel:@"任务大小"
-                      text:[NSString stringWithFormat:@"%@(%ld个文件)",[CommonUtils changeKMGB:_taskInfo.totalLength],[_taskInfo.files count]]];
+                      text:[NSString stringWithFormat:@"%@(%ld个文件)", [CommonUtils changeKMGB:_taskInfo.totalLength],
+                                                      [_taskInfo.files count]]];
         } break;
         case STATUSCELL: {
             [cell setLabel:@"任务状态" text:_taskInfo.status];
@@ -105,6 +106,30 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
             break;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case FILEURLPATHCELL: {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
+                                                                           message:nil
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+
+            [alert addAction:[UIAlertAction actionWithTitle:@"复制下载地址"
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction *_Nonnull action) {
+                                                        [UIPasteboard generalPasteboard].string =
+                                                            _taskInfo.files[0].uris[0].uri;
+                                                        [MsgUtils showMsg:@"已复制到剪切板"];
+                                                    }]];
+
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+
+            [self presentViewController:alert animated:YES completion:nil];
+        } break;
+        default:
+            break;
+    }
 }
 
 //每组行数

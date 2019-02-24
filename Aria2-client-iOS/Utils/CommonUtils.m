@@ -15,6 +15,7 @@
 + (void)AlertViewByVC:(BaseViewController *)vc
            showInfoCB:(void (^)(UIAlertAction *action))showInfoCB
               pauseCB:(void (^)(UIAlertAction *action))pauseCB
+           pauseTitle:(NSString *)pauseTitle
              removeCB:(void (^)(UIAlertAction *action))removeCB {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
                                                                    message:nil
@@ -27,7 +28,10 @@
     }
 
     if (pauseCB) {
-        [alert addAction:[UIAlertAction actionWithTitle:@"暂停/恢复" style:UIAlertActionStyleDestructive handler:pauseCB]];
+        [alert addAction:[UIAlertAction
+                             actionWithTitle:[CommonUtils stringIsNull:pauseTitle] ? @"暂停/恢复" : pauseTitle
+                                       style:UIAlertActionStyleDestructive
+                                     handler:pauseCB]];
     }
 
     if (removeCB) {
