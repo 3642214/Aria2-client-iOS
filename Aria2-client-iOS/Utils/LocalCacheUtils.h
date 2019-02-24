@@ -25,4 +25,7 @@
 
 - (id)getObjectByKey:(NSString *)key;
 - (void)setObject:(id)object forKey:(NSString *)key;
+
+- (void)setJsonrpcArray:(NSArray *)array;
+- (NSArray *)getJsonrpcArray;
 @end

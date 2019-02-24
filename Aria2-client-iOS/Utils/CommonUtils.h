@@ -24,5 +24,6 @@
  */
 + (BOOL)stringIsNull:(NSString *)string;
 
++ (BOOL)isUrlAddress:(NSString *)url;
 @end
 #endif /* CommonUtils_h */

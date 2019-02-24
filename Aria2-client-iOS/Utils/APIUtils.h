@@ -10,18 +10,6 @@
 #import <YYModel/YYModel.h>
 #import "Result.h"
 
-@interface Account : NSObject
-@property (nonatomic, copy) NSString *token;
-@end
-
-@interface License : NSObject
-@property (nonatomic, copy) NSString *_id;
-@property (nonatomic, copy) NSString *uuid;
-@property (nonatomic, copy) NSString *license;
-@property (nonatomic, assign) BOOL enabled;
-@property (nonatomic, assign) long long time;
-
-@end
 
 @interface APIUtils : NSObject
 
@@ -153,6 +141,17 @@
  @param failure <#failure description#>
  */
 + (void)getVersion:(NSString *)rpcUri
-                success:(void (^)(Setting *setting))success
+           success:(void (^)(Version *version))success
+           failure:(void (^)(NSString *msg))failure;
+
+/**
+ 获取全局状态
+
+ @param rpcUri <#rpcUri description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)getGlobalStatus:(NSString *)rpcUri
+                success:(void (^)(GlobalStatus *globalStatus))success
                 failure:(void (^)(NSString *msg))failure;
 @end

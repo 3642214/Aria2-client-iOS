@@ -21,11 +21,12 @@
 		5B104214221FF30A00245D11 /* NetUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B10420A221FF30A00245D11 /* NetUtils.m */; };
 		5B104216221FF30A00245D11 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B10420D221FF30A00245D11 /* CommonUtils.m */; };
 		5B10422E221FF32100245D11 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104220221FF32100245D11 /* ButtonCell.m */; };
-		5B104232221FF32100245D11 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104229221FF32100245D11 /* LeftRightArrowCell.m */; };
 		5B104243221FF38400245D11 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104241221FF38400245D11 /* BaseNavigationController.m */; };
 		5B104244221FF38400245D11 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B104242221FF38400245D11 /* BaseViewController.m */; };
 		5B252C1A2220E9AA0039B942 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B252C192220E9AA0039B942 /* Result.m */; };
 		5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A215B22218405001CDEC1 /* AppDelegate.m */; };
+		5B2A215F222234A6001CDEC1 /* JsonrpcServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A215E222234A6001CDEC1 /* JsonrpcServer.m */; };
+		5B2A216222223663001CDEC1 /* JsonrpcServerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */; };
 		5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4FD0AB2221407A003D11CC /* StopListViewController.m */; };
 		98C45BAE3A055743763FE509 /* Pods_Aria2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D2441FE3367899BDD9500B /* Pods_Aria2.framework */; };
 /* End PBXBuildFile section */
@@ -79,10 +80,8 @@
 		5B10420A221FF30A00245D11 /* NetUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetUtils.m; sourceTree = "<group>"; };
 		5B10420B221FF30A00245D11 /* LocalCacheUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCacheUtils.h; sourceTree = "<group>"; };
 		5B10420D221FF30A00245D11 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
-		5B10421F221FF32100245D11 /* LeftRightArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightArrowCell.h; sourceTree = "<group>"; };
 		5B104220221FF32100245D11 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		5B104228221FF32100245D11 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
-		5B104229221FF32100245D11 /* LeftRightArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftRightArrowCell.m; sourceTree = "<group>"; };
 		5B10423F221FF38400245D11 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5B104240221FF38400245D11 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		5B104241221FF38400245D11 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
@@ -91,6 +90,10 @@
 		5B252C192220E9AA0039B942 /* Result.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		5B2A215A22218405001CDEC1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B2A215B22218405001CDEC1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5B2A215D222234A6001CDEC1 /* JsonrpcServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonrpcServer.h; sourceTree = "<group>"; };
+		5B2A215E222234A6001CDEC1 /* JsonrpcServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServer.m; sourceTree = "<group>"; };
+		5B2A216022223663001CDEC1 /* JsonrpcServerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonrpcServerCell.h; sourceTree = "<group>"; };
+		5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServerCell.m; sourceTree = "<group>"; };
 		5B4FD0AB2221407A003D11CC /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListViewController.m; sourceTree = "<group>"; };
 		5B4FD0AC2221407A003D11CC /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListViewController.h; sourceTree = "<group>"; };
 		81D2441FE3367899BDD9500B /* Pods_Aria2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aria2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,10 +211,10 @@
 			children = (
 				5B104228221FF32100245D11 /* ButtonCell.h */,
 				5B104220221FF32100245D11 /* ButtonCell.m */,
-				5B10421F221FF32100245D11 /* LeftRightArrowCell.h */,
-				5B104229221FF32100245D11 /* LeftRightArrowCell.m */,
 				5B0F7ED82220F86A00A6E573 /* FileCell.h */,
 				5B0F7ED92220F86A00A6E573 /* FileCell.m */,
+				5B2A216022223663001CDEC1 /* JsonrpcServerCell.h */,
+				5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -221,6 +224,8 @@
 			children = (
 				5B252C182220E9AA0039B942 /* Result.h */,
 				5B252C192220E9AA0039B942 /* Result.m */,
+				5B2A215D222234A6001CDEC1 /* JsonrpcServer.h */,
+				5B2A215E222234A6001CDEC1 /* JsonrpcServer.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -441,7 +446,6 @@
 				5B104244221FF38400245D11 /* BaseViewController.m in Sources */,
 				5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */,
 				5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */,
-				5B104232221FF32100245D11 /* LeftRightArrowCell.m in Sources */,
 				5B0F7ED72220F52900A6E573 /* ActiveListViewController.m in Sources */,
 				5B104214221FF30A00245D11 /* NetUtils.m in Sources */,
 				5B1041C1221FEA7F00245D11 /* ServersViewController.m in Sources */,
@@ -452,7 +456,9 @@
 				5B1041F8221FEC4C00245D11 /* UIButton+Bootstrap.m in Sources */,
 				5B104211221FF30A00245D11 /* MsgUtils.m in Sources */,
 				5B1041CC221FEA8000245D11 /* main.m in Sources */,
+				5B2A216222223663001CDEC1 /* JsonrpcServerCell.m in Sources */,
 				5B104213221FF30A00245D11 /* APIUtils.m in Sources */,
+				5B2A215F222234A6001CDEC1 /* JsonrpcServer.m in Sources */,
 				5B104216221FF30A00245D11 /* CommonUtils.m in Sources */,
 				5B104243221FF38400245D11 /* BaseNavigationController.m in Sources */,
 				5B1041F9221FEC4C00245D11 /* NSString+SHA256.m in Sources */,

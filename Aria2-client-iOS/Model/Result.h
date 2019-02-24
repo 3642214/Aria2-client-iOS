@@ -13,6 +13,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface Version : NSObject
+@property (strong, nonatomic) NSArray *enabledFeatures;
+@property (strong, nonatomic) NSString *version;
+@end
+
+@interface GlobalStatus : NSObject
+@property (assign, nonatomic) NSInteger downloadSpeed;   //: "0"
+@property (assign, nonatomic) NSInteger numActive;       //: "0"
+@property (assign, nonatomic) NSInteger numStopped;      //: "1"
+@property (assign, nonatomic) NSInteger numStoppedTotal; //: "1"
+@property (assign, nonatomic) NSInteger numWaiting;      //: "2"
+@property (assign, nonatomic) NSInteger uploadSpeed;     //: "0"
+@end
+
 @interface Uris : NSObject
 @property (strong, nonatomic) NSString *status;
 @property (strong, nonatomic) NSString *uri;

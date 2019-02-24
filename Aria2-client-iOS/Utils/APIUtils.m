@@ -11,12 +11,6 @@
 #import "APIUtils.h"
 #import "NetUtils.h"
 
-@implementation Account
-@end
-
-@implementation License
-@end
-
 @implementation APIUtils
 + (void)listActiveAndStop:(NSString *)rpcUri
                   success:(void (^)(NSArray *taskInfos, NSInteger count))success
@@ -199,14 +193,29 @@
 }
 
 + (void)getVersion:(NSString *)rpcUri
-           success:(void (^)(Setting *setting))success
+           success:(void (^)(Version *version))success
            failure:(void (^)(NSString *msg))failure {
     NSMutableDictionary *dict = [self createDict];
     [dict setObject:@"aria2.getVersion" forKey:@"method"];
     [NetUtils doPost:rpcUri
         withParameters:dict
         success:^(NSString *json, NSInteger _) {
-            success(json);
+            success([Version yy_modelWithJSON:json]);
+        }
+        failure:^(NSString *msg) {
+            YMFAILURE(failure, msg);
+        }];
+}
+
++ (void)getGlobalStatus:(NSString *)rpcUri
+                success:(void (^)(GlobalStatus *globalStatus))success
+                failure:(void (^)(NSString *msg))failure {
+    NSMutableDictionary *dict = [self createDict];
+    [dict setObject:@"aria2.getGlobalStat" forKey:@"method"];
+    [NetUtils doPost:rpcUri
+        withParameters:dict
+        success:^(NSString *json, NSInteger _) {
+            success([GlobalStatus yy_modelWithJSON:json]);
         }
         failure:^(NSString *msg) {
             YMFAILURE(failure, msg);

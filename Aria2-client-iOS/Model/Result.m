@@ -8,6 +8,12 @@
 
 #import "Result.h"
 
+@implementation Version
+@end
+
+@implementation GlobalStatus
+@end
+
 @implementation Uris
 @end
 
