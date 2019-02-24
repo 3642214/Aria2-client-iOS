@@ -36,17 +36,21 @@
         success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
         }
         failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
-            NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
-            NSDictionary *serializedData =
-                [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
             LLog(@"http post used %0.2f s",
                  [[NSDate date] timeIntervalSince1970] - [[newDict valueForKey:@"TT"] intValue]);
-            //            LLog(@"post return data:%@", serializedData);
 
-            if ([serializedData objectForKey:@"result"]) {
-                success(serializedData[@"result"], 0);
+            NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+            if (errorData) {
+                NSDictionary *serializedData =
+                    [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
+                //            LLog(@"post return data:%@", serializedData);
+                if ([serializedData objectForKey:@"result"]) {
+                    success(serializedData[@"result"], 0);
+                } else {
+                    failure(serializedData[@"error"]);
+                }
             } else {
-                failure(serializedData[@"error"]);
+                failure(@"服务器无法访问");
             }
         }];
 }

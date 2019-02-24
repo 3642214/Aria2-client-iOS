@@ -97,8 +97,13 @@
         _speedT.text = [NSString stringWithFormat:@"⏬%@/s ⏫%@/s", [CommonUtils changeKMGB:stat.downloadSpeed],
                                                   [CommonUtils changeKMGB:stat.uploadSpeed]];
     } else {
-        _statT.text = @"服务器状态获取失败，刷新试试";
+        [self setOfflineStat];
     }
+}
+
+- (void)setOfflineStat {
+    _statT.text = @"服务器状态获取失败，刷新试试";
+    _speedT.text = @" ";
 }
 
 @end

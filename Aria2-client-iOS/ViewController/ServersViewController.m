@@ -76,10 +76,12 @@
         JsonrpcServer *js = _list[indexPath.row];
         [cell setJsonrpcServer:js];
         [APIUtils getGlobalStatus:js.uri
-                          success:^(GlobalStatus *globalStatus) {
-                              [cell setStat:globalStatus];
-                          }
-                          failure:nil];
+            success:^(GlobalStatus *globalStatus) {
+                [cell setStat:globalStatus];
+            }
+            failure:^(NSString *msg) {
+                [cell setOfflineStat];
+            }];
         return cell;
     } else {
         if (!_addBtn) {

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JsonrpcServerCell : UITableViewCell
 @property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
 @property (strong, nonatomic) GlobalStatus *stat;
+- (void)setOfflineStat;
 @end
 
 NS_ASSUME_NONNULL_END
