@@ -47,7 +47,7 @@
 
         if (!_statT) {
             _statT = [UILabel new];
-            _statT.text = @" ";
+            _statT.text = @"获取中...";
             [self.contentView addSubview:_statT];
             _statT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
             [_statT setTextColor:ymContentPrimaryTextColor];
@@ -59,7 +59,7 @@
 
         if (!_speedT) {
             _speedT = [UILabel new];
-            _speedT.text = @" ";
+            _speedT.text = @"获取中...";
             [self.contentView addSubview:_speedT];
             _speedT.font = [UIFont systemFontOfSize:ymFontSizeNormal];
             [_speedT setTextColor:ymContentPrimaryTextColor];

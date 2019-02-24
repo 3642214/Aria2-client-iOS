@@ -15,6 +15,7 @@
 #import "JsonrpcServerCell.h"
 #import "LocalCacheUtils.h"
 #import "UIView+TYAlertView.h"
+#import "MJRefreshStateHeader.h"
 
 @interface ServersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) TPKeyboardAvoidingTableView *myTableView;
@@ -39,9 +40,10 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.scrollEnabled = NO;
+//        tableView.scrollEnabled = NO;
         [self.view addSubview:tableView];
 
+        tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(fresh)];
         [tableView registerClass:[JsonrpcServerCell class] forCellReuseIdentifier:@"JsonrpcServerCellText"];
         tableView.backgroundColor = ymBackgroudColor;
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,6 +51,11 @@
         }];
         tableView;
     });
+}
+
+- (void)fresh {
+    [_myTableView.mj_header endRefreshing];
+    [_myTableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

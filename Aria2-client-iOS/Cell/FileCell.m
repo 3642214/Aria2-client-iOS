@@ -85,10 +85,10 @@
                 make.top.equalTo(_processView.mas_bottom).offset(ymScreen_top_padding / 2);
             }];
         }
-        
+
         UIView *v = [UIView new];
         [self.contentView addSubview:v];
-        v.backgroundColor=ymColorIngoreGrayLight;
+        v.backgroundColor = ymColorIngoreGrayLight;
         [v mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.contentView);
             make.height.equalTo(@2);
@@ -103,22 +103,24 @@
     return self;
 }
 
-- (void)setActivite:(TaskInfo *)activite {
-    _nameT.text = [activite.files[0].path lastPathComponent];
-    _sizeT.text = [CommonUtils changeKMGB:activite.totalLength];
-    [_processView setProgress:activite.totalLength == 0 ? 0 : (float) activite.completedLength / activite.totalLength
+- (void)setActivite:(TaskInfo *)taskInfo {
+    NSString *filePath = [taskInfo.files[0].path lastPathComponent];
+    NSString *uriPath = [taskInfo.files[0].uris[0].uri lastPathComponent];
+    _nameT.text = [CommonUtils stringIsNull:filePath] ? uriPath : filePath;
+    _sizeT.text = [CommonUtils changeKMGB:taskInfo.totalLength];
+    [_processView setProgress:taskInfo.totalLength == 0 ? 0 : (float) taskInfo.completedLength / taskInfo.totalLength
                      animated:NO];
-    
-    if ([activite.status isEqualToString:@"active"]) {
-        _speedT.text = [NSString stringWithFormat:@"%@/s", [CommonUtils changeKMGB:activite.downloadSpeed]];
-        _remainingT.text =
-        [CommonUtils changeTimeFormat:activite.downloadSpeed == 0
-         ? 0
-                                     : (activite.totalLength - activite.completedLength) / activite.downloadSpeed];
-    }else if ([activite.status isEqualToString:@"paused"]){
+
+    if ([taskInfo.status isEqualToString:@"active"]) {
+        _speedT.text = [NSString stringWithFormat:@"%@/s", [CommonUtils changeKMGB:taskInfo.downloadSpeed]];
+        _remainingT.text = [CommonUtils
+            changeTimeFormat:taskInfo.downloadSpeed == 0
+                                 ? 0
+                                 : (taskInfo.totalLength - taskInfo.completedLength) / taskInfo.downloadSpeed];
+    } else if ([taskInfo.status isEqualToString:@"paused"]) {
         _speedT.text = @" ";
         _remainingT.text = @"已暂停";
-    }else{
+    } else {
         _speedT.text = @"";
         _remainingT.text = @"";
     }
