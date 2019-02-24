@@ -11,6 +11,7 @@
 #import "APIUtils.h"
 #import "FileCell.h"
 #import "UIView+TYAlertView.h"
+#import "FileInfoViewController.h"
 
 @interface StopListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) TPKeyboardAvoidingTableView *myTableView;
@@ -80,25 +81,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
-                                                                   message:nil
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"删除"
-                                              style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *_Nonnull action) {
-                                                TaskInfo *act = _list[indexPath.row];
-                                                [APIUtils removeResultByGid:act.gid
-                                                                     rpcUri:_rpcUri
-                                                                    success:^(NSString *okmsg) {
-                                                                        [MsgUtils showMsg:@"已删除下载记录"];
-                                                                    }
-                                                                    failure:nil];
-                                            }]];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-
-    [self presentViewController:alert animated:YES completion:nil];
+    TaskInfo *act = _list[indexPath.row];
+    [CommonUtils AlertViewByVC:self
+        showInfoCB:^(UIAlertAction *action) {
+            FileInfoViewController *vc = [FileInfoViewController new];
+            vc.gid = act.gid;
+            vc.rpcUri = _rpcUri;
+            [self gotoVC:vc];
+        }
+        pauseCB:nil
+        removeCB:^(UIAlertAction *action) {
+            [APIUtils removeResultByGid:act.gid
+                                 rpcUri:_rpcUri
+                                success:^(NSString *okmsg) {
+                                    [self fresh];
+                                    [MsgUtils showMsg:@"已删除下载记录"];
+                                }
+                                failure:nil];
+        }];
 }
 
 //每组行数

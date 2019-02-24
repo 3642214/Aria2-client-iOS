@@ -10,7 +10,6 @@
 #import <YYModel/YYModel.h>
 #import "Result.h"
 
-
 @interface APIUtils : NSObject
 
 /**
@@ -23,6 +22,19 @@
 + (void)listActiveAndStop:(NSString *)rpcUri
                   success:(void (^)(NSArray *taskInfos, NSInteger count))success
                   failure:(void (^)(NSString *msg))failure;
+
+/**
+ 获取单个状态
+
+ @param gid <#gid description#>
+ @param rpcUri <#rpcUri description#>
+ @param success <#success description#>
+ @param failure <#failure description#>
+ */
++ (void)statusByGid:(NSString *)gid
+             rpcUri:(NSString *)rpcUri
+            success:(void (^)(TaskInfo *taskInfo))success
+            failure:(void (^)(NSString *msg))failure;
 
 /**
  恢复暂停

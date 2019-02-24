@@ -63,6 +63,23 @@
         }];
 }
 
++ (void)statusByGid:(NSString *)gid
+             rpcUri:(NSString *)rpcUri
+            success:(void (^)(TaskInfo *taskInfo))success
+            failure:(void (^)(NSString *msg))failure {
+    NSMutableDictionary *dict = [self createDict];
+    [dict setObject:@"aria2.tellStatus" forKey:@"method"];
+    [dict setObject:@[ gid ] forKey:@"params"];
+    [NetUtils doPost:rpcUri
+        withParameters:dict
+        success:^(NSString *json, NSInteger _) {
+            success([TaskInfo yy_modelWithJSON:json]);
+        }
+        failure:^(NSString *msg) {
+            YMFAILURE(failure, msg);
+        }];
+}
+
 + (void)unpauseByGid:(NSString *)gid
               rpcUri:(NSString *)rpcUri
              success:(void (^)(NSString *okmsg))success

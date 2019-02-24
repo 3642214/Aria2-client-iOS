@@ -10,8 +10,16 @@
 #define CommonUtils_h
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Result.h"
+#import "BaseViewController.h"
 
 @interface CommonUtils : NSObject
+
++ (void)AlertViewByVC:(BaseViewController *)vc
+           showInfoCB:(void (^)(UIAlertAction *action))showInfoCB
+              pauseCB:(void (^)(UIAlertAction *action))pauseCB
+             removeCB:(void (^)(UIAlertAction *action))removeCB;
+
 + (NSString *)changeTimeFormat:(NSInteger)sec;
 + (NSString *)changeKMGB:(NSInteger)byte;
 

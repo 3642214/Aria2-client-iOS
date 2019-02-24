@@ -9,7 +9,35 @@
 #import "CommonUtils.h"
 #import "MsgUtils.h"
 #import <Foundation/Foundation.h>
+#import "FileInfoViewController.h"
 @implementation CommonUtils : NSObject
+
++ (void)AlertViewByVC:(BaseViewController *)vc
+           showInfoCB:(void (^)(UIAlertAction *action))showInfoCB
+              pauseCB:(void (^)(UIAlertAction *action))pauseCB
+             removeCB:(void (^)(UIAlertAction *action))removeCB {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    if (showInfoCB) {
+        [alert
+            addAction:[UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault
+                                             handler:showInfoCB]];
+    }
+
+    if (pauseCB) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"暂停/恢复" style:UIAlertActionStyleDestructive handler:pauseCB]];
+    }
+
+    if (removeCB) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:removeCB]];
+    }
+
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+
+    [vc presentViewController:alert animated:YES completion:nil];
+}
 
 + (NSString *)changeTimeFormat:(NSInteger)sec {
     if (sec < 0) {

@@ -13,6 +13,7 @@
 #import "UIView+TYAlertView.h"
 #import "ButtonCell.h"
 #import "StopListViewController.h"
+#import "FileInfoViewController.h"
 
 @interface ActiveListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) TPKeyboardAvoidingTableView *myTableView;
@@ -144,44 +145,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskInfo *taskInfo = _list[indexPath.row];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择操作"
-                                                                   message:nil
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-
-    [alert addAction:[UIAlertAction actionWithTitle:[taskInfo.status isEqualToString:@"active"] ? @"暂停" : @"恢复"
-                                              style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *_Nonnull action) {
-                                                if ([taskInfo.status isEqualToString:@"active"]) {
-                                                    [APIUtils pauseByGid:taskInfo.gid
-                                                                  rpcUri:_rpcUri
-                                                                 success:^(NSString *okmsg) {
-                                                                     [MsgUtils showMsg:@"已暂停下载"];
-                                                                 }
-                                                                 failure:nil];
-                                                } else {
-                                                    [APIUtils unpauseByGid:taskInfo.gid
-                                                                    rpcUri:_rpcUri
-                                                                   success:^(NSString *okmsg) {
-                                                                       [MsgUtils showMsg:@"恢复下载"];
-                                                                   }
-                                                                   failure:nil];
-                                                }
-                                            }]];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"删除"
-                                              style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *_Nonnull action) {
-                                                [APIUtils removeByGid:taskInfo.gid
-                                                               rpcUri:_rpcUri
-                                                              success:^(NSString *okmsg) {
-                                                                  [MsgUtils showMsg:@"已删除下载任务"];
-                                                              }
-                                                              failure:nil];
-                                            }]];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-
-    [self presentViewController:alert animated:YES completion:nil];
+    [CommonUtils AlertViewByVC:self
+        showInfoCB:^(UIAlertAction *action) {
+            FileInfoViewController *vc = [FileInfoViewController new];
+            vc.gid = taskInfo.gid;
+            vc.rpcUri = _rpcUri;
+            [self gotoVC:vc];
+        }
+        pauseCB:^(UIAlertAction *action) {
+            if ([taskInfo.status isEqualToString:@"active"]) {
+                [APIUtils pauseByGid:taskInfo.gid
+                              rpcUri:_rpcUri
+                             success:^(NSString *okmsg) {
+                                 [MsgUtils showMsg:@"已暂停下载"];
+                             }
+                             failure:nil];
+            } else {
+                [APIUtils unpauseByGid:taskInfo.gid
+                                rpcUri:_rpcUri
+                               success:^(NSString *okmsg) {
+                                   [MsgUtils showMsg:@"恢复下载"];
+                               }
+                               failure:nil];
+            }
+        }
+        removeCB:^(UIAlertAction *action) {
+            [APIUtils removeByGid:taskInfo.gid
+                           rpcUri:_rpcUri
+                          success:^(NSString *okmsg) {
+                              [MsgUtils showMsg:@"已删除下载任务"];
+                          }
+                          failure:nil];
+        }];
 }
 
 //每组行数

@@ -28,6 +28,8 @@
 		5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A215B22218405001CDEC1 /* AppDelegate.m */; };
 		5B2A215F222234A6001CDEC1 /* JsonrpcServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A215E222234A6001CDEC1 /* JsonrpcServer.m */; };
 		5B2A216222223663001CDEC1 /* JsonrpcServerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */; };
+		5B2A21652222598F001CDEC1 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A21642222598F001CDEC1 /* FileInfoViewController.m */; };
+		5B2A2168222259E9001CDEC1 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A2166222259E9001CDEC1 /* LeftRightArrowCell.m */; };
 		5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4FD0AB2221407A003D11CC /* StopListViewController.m */; };
 		98C45BAE3A055743763FE509 /* Pods_Aria2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D2441FE3367899BDD9500B /* Pods_Aria2.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,10 @@
 		5B2A215E222234A6001CDEC1 /* JsonrpcServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServer.m; sourceTree = "<group>"; };
 		5B2A216022223663001CDEC1 /* JsonrpcServerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonrpcServerCell.h; sourceTree = "<group>"; };
 		5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonrpcServerCell.m; sourceTree = "<group>"; };
+		5B2A21632222598E001CDEC1 /* FileInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileInfoViewController.h; sourceTree = "<group>"; };
+		5B2A21642222598F001CDEC1 /* FileInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileInfoViewController.m; sourceTree = "<group>"; };
+		5B2A2166222259E9001CDEC1 /* LeftRightArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftRightArrowCell.m; sourceTree = "<group>"; };
+		5B2A2167222259E9001CDEC1 /* LeftRightArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftRightArrowCell.h; sourceTree = "<group>"; };
 		5B4FD0AB2221407A003D11CC /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListViewController.m; sourceTree = "<group>"; };
 		5B4FD0AC2221407A003D11CC /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListViewController.h; sourceTree = "<group>"; };
 		6123D61999AB1275085D1405 /* Pods_Aria2_client_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aria2_client_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +228,8 @@
 				5B0F7ED92220F86A00A6E573 /* FileCell.m */,
 				5B2A216022223663001CDEC1 /* JsonrpcServerCell.h */,
 				5B2A216122223663001CDEC1 /* JsonrpcServerCell.m */,
+				5B2A2167222259E9001CDEC1 /* LeftRightArrowCell.h */,
+				5B2A2166222259E9001CDEC1 /* LeftRightArrowCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -246,6 +254,8 @@
 				5B4FD0AB2221407A003D11CC /* StopListViewController.m */,
 				5B1041BF221FEA7F00245D11 /* ServersViewController.h */,
 				5B1041C0221FEA7F00245D11 /* ServersViewController.m */,
+				5B2A21632222598E001CDEC1 /* FileInfoViewController.h */,
+				5B2A21642222598F001CDEC1 /* FileInfoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -456,6 +466,8 @@
 				5B104244221FF38400245D11 /* BaseViewController.m in Sources */,
 				5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */,
 				5B2A215C22218406001CDEC1 /* AppDelegate.m in Sources */,
+				5B2A21652222598F001CDEC1 /* FileInfoViewController.m in Sources */,
+				5B2A2168222259E9001CDEC1 /* LeftRightArrowCell.m in Sources */,
 				5B0F7ED72220F52900A6E573 /* ActiveListViewController.m in Sources */,
 				5B104214221FF30A00245D11 /* NetUtils.m in Sources */,
 				5B1041C1221FEA7F00245D11 /* ServersViewController.m in Sources */,
