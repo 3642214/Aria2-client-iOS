@@ -103,9 +103,9 @@
     return self;
 }
 
-- (void)setActivite:(TaskInfo *)taskInfo {
+- (void)setActive:(TaskInfo *)taskInfo {
     NSString *filePath = [taskInfo.files[0].path lastPathComponent];
-    NSString *uriPath = [taskInfo.files[0].uris[0].uri lastPathComponent];
+    NSString *uriPath = [taskInfo.files[0].uris count] > 0 ? [taskInfo.files[0].uris[0].uri lastPathComponent] : @"";
     _nameT.text = [CommonUtils stringIsNull:filePath] ? uriPath : filePath;
     _sizeT.text = [CommonUtils changeKMGB:taskInfo.totalLength];
     [_processView setProgress:taskInfo.totalLength == 0 ? 0 : (float) taskInfo.completedLength / taskInfo.totalLength

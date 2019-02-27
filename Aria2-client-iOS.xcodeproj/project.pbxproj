@@ -31,7 +31,6 @@
 		5B2A21652222598F001CDEC1 /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A21642222598F001CDEC1 /* FileInfoViewController.m */; };
 		5B2A2168222259E9001CDEC1 /* LeftRightArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A2166222259E9001CDEC1 /* LeftRightArrowCell.m */; };
 		5B4FD0AD2221407A003D11CC /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4FD0AB2221407A003D11CC /* StopListViewController.m */; };
-		98C45BAE3A055743763FE509 /* Pods_Aria2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D2441FE3367899BDD9500B /* Pods_Aria2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C45BAE3A055743763FE509 /* Pods_Aria2.framework in Frameworks */,
 				41F7ABC7E3DBC6BA82764EC5 /* Pods_Aria2_client_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

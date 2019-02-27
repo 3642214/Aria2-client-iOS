@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self setTitle:@"已完成/已停止"];
+    [self setTitle:[NSString stringWithFormat:@"%@-已完成/已停止",_jsonrpcServer.name]];
     _list = [NSMutableArray new];
 
     //    添加myTableView
@@ -65,12 +65,12 @@
         cell = [[FileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FileCellText"];
     }
     TaskInfo *act = _list[indexPath.row];
-    cell.activite = act;
+    cell.active = act;
     return cell;
 }
 
 - (void)fresh {
-    [APIUtils listStopped:_rpcUri
+    [APIUtils listStopped:_jsonrpcServer.uri
         success:^(NSArray *activite, NSInteger count) {
             _list = [activite mutableCopy];
             [_myTableView reloadData];
@@ -86,14 +86,14 @@
         showInfoCB:^(UIAlertAction *action) {
             FileInfoViewController *vc = [FileInfoViewController new];
             vc.gid = act.gid;
-            vc.rpcUri = _rpcUri;
+            vc.rpcUri = _jsonrpcServer.uri;
             [self gotoVC:vc];
         }
         pauseCB:nil
         pauseTitle:nil
         removeCB:^(UIAlertAction *action) {
             [APIUtils removeResultByGid:act.gid
-                                 rpcUri:_rpcUri
+                                 rpcUri:_jsonrpcServer.uri
                                 success:^(NSString *okmsg) {
                                     [self fresh];
                                     [MsgUtils showMsg:@"已删除下载记录"];

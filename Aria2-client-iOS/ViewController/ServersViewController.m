@@ -40,7 +40,7 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        tableView.scrollEnabled = NO;
+        //        tableView.scrollEnabled = NO;
         [self.view addSubview:tableView];
 
         tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(fresh)];
@@ -64,7 +64,7 @@
         [APIUtils getVersion:jrs.uri
             success:^(Version *version) {
                 ActiveListViewController *vc = [ActiveListViewController new];
-                vc.rpcUri = jrs.uri;
+                vc.jsonrpcServer = jrs;
                 [self gotoVC:vc];
             }
             failure:^(NSString *msg) {

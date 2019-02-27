@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FileCell : UITableViewCell
-@property (strong, nonatomic) TaskInfo *activite;
+@property (strong, nonatomic) TaskInfo *active;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -43,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self setTitle:@"正在下载"];
+    [self setTitle:[NSString stringWithFormat:@"%@-正在下载",_jsonrpcServer.name]];
     _list = [NSMutableArray new];
 
     self.navigationItem.rightBarButtonItem =
@@ -89,7 +89,7 @@
                                                 handler:^(TYAlertAction *action) {
                                                     for (UITextField *textField in weakAlertView.textFieldArray) {
                                                         [APIUtils addUri:textField.text
-                                                            rpcUri:_rpcUri
+                                                            rpcUri:_jsonrpcServer.uri
                                                             success:^(NSString *gid) {
                                                                 LLog(@"ok");
                                                             }
@@ -108,7 +108,7 @@
                                                       title:@"完成/停止列表"
                                                  clickEvent:^{
                                                      StopListViewController *vc = [StopListViewController new];
-                                                     vc.rpcUri = _rpcUri;
+                                                     vc.jsonrpcServer = _jsonrpcServer;
                                                      [self gotoVC:vc];
                                                  }];
         }
@@ -120,13 +120,13 @@
             cell = [[FileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FileCellText"];
         }
         TaskInfo *act = _list[indexPath.row];
-        cell.activite = act;
+        cell.active = act;
         return cell;
     }
 }
 
 - (void)fresh {
-    [APIUtils listActiveAndStop:_rpcUri
+    [APIUtils listActiveAndStop:_jsonrpcServer.uri
         success:^(NSArray *taskInfos, NSInteger count) {
             _list = [taskInfos mutableCopy];
             [_myTableView reloadData];
@@ -149,20 +149,20 @@
         showInfoCB:^(UIAlertAction *action) {
             FileInfoViewController *vc = [FileInfoViewController new];
             vc.gid = taskInfo.gid;
-            vc.rpcUri = _rpcUri;
+            vc.rpcUri = _jsonrpcServer.uri;
             [self gotoVC:vc];
         }
         pauseCB:^(UIAlertAction *action) {
             if ([taskInfo.status isEqualToString:@"active"]) {
                 [APIUtils pauseByGid:taskInfo.gid
-                              rpcUri:_rpcUri
+                              rpcUri:_jsonrpcServer.uri
                              success:^(NSString *okmsg) {
                                  [MsgUtils showMsg:@"已暂停下载"];
                              }
                              failure:nil];
             } else {
                 [APIUtils unpauseByGid:taskInfo.gid
-                                rpcUri:_rpcUri
+                                rpcUri:_jsonrpcServer.uri
                                success:^(NSString *okmsg) {
                                    [MsgUtils showMsg:@"恢复下载"];
                                }
@@ -172,7 +172,7 @@
         pauseTitle:[taskInfo.status isEqualToString:@"active"] ? @"暂停" : @"恢复"
         removeCB:^(UIAlertAction *action) {
             [APIUtils removeByGid:taskInfo.gid
-                           rpcUri:_rpcUri
+                           rpcUri:_jsonrpcServer.uri
                           success:^(NSString *okmsg) {
                               [MsgUtils showMsg:@"已删除下载任务"];
                           }

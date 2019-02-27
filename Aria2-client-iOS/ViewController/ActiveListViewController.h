@@ -7,11 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "JsonrpcServer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ActiveListViewController : BaseViewController
-@property (strong, nonatomic) NSString *rpcUri;
+@property (strong, nonatomic) JsonrpcServer *jsonrpcServer;
 @end
 
 NS_ASSUME_NONNULL_END

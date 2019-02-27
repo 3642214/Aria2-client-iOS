@@ -75,7 +75,8 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
     switch (indexPath.row) {
         case NAMECELL: {
             NSString *filePath = [_taskInfo.files[0].path lastPathComponent];
-            NSString *uriPath = [_taskInfo.files[0].uris[0].uri lastPathComponent];
+            NSString *uriPath =
+                [_taskInfo.files[0].uris count] > 0 ? [_taskInfo.files[0].uris[0].uri lastPathComponent] : @"";
             [cell setLabel:@"任务名称" text:[CommonUtils stringIsNull:filePath] ? uriPath : filePath];
         } break;
         case SIZECELL: {
@@ -97,7 +98,7 @@ typedef NS_ENUM(NSInteger, FileInfoVCCell) {
             [cell setLabel:@"下载" text:[CommonUtils changeKMGB:_taskInfo.completedLength]];
         } break;
         case FILEURLPATHCELL: {
-            [cell setLabel:@"下载地址" text:_taskInfo.files[0].uris[0].uri];
+            [cell setLabel:@"下载地址" text:[_taskInfo.files[0].uris count] > 0 ? _taskInfo.files[0].uris[0].uri : @""];
         } break;
         case DOWNLOADPATHCELL: {
             [cell setLabel:@"下载路径" text:_taskInfo.dir];
